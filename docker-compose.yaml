@@ -67,7 +67,7 @@ services:
   mysql:
    build:
     context: ./mysql  
-    dockerfile: mysql.dockerfile
+    dockerfile: mysql.Dockerfile
    image : mysql:1.0.0
    container_name: mysqldb
   rabbitmq:

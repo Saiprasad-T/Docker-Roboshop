@@ -5,13 +5,13 @@ networks:
 services:
   catalogue:
    build: ./catalogue
-   image : catalogue:1.0.0
+   image : saithota9/catalogue:1.0.0
    container_name: catalogue
    depends_on:
       - mongodb
   frontend:
    build: ./frontend
-   image : frontend:1.0.0
+   image : saithota9/frontend:1.0.0
    container_name: frontend
    ports:
     - "80:80"
@@ -23,42 +23,42 @@ services:
    - payment
   user:
    build: ./user
-   image : user:1.0.0
+   image : saithota9/user:1.0.0
    container_name: user
    depends_on:
       - mongodb
       - redis
   cart:
    build: ./cart  
-   image : cart:1.0.0
+   image : saithota9/cart:1.0.0
    container_name: cart
    depends_on:
       - redis
   shipping:
    build: ./shipping  
-   image : shipping:1.0.0
+   image : saithota9/shipping:1.0.0
    container_name: shipping
    depends_on:
       - mysql
   payment:
    build: ./payment  
-   image : payment:1.0.0
+   image : saithota9/payment:1.0.0
    container_name: payment
    depends_on:
       - mysql
   mongodb:
    build: ./mongodb  
-   image : mongodb:1.0.0
+   image : saithota9/mongodb:1.0.0
    container_name: mongodb
   mysql:
    build: ./mysql
-   image : mysql:1.0.0
+   image : saithota9/mysql:1.0.0
    container_name: mysqldb
   rabbitmq:
    build: ./rabbitmq  
-   image : rabbitmq:1.0.0
+   image : saithota9/rabbitmq:1.0.0
    container_name: rabbitmq
   redis:
-   image: redis:7.0
+   image: saithota9/redis:7.0
    container_name: redis
 

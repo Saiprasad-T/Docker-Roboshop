@@ -1,7 +1,6 @@
 networks:
-   driver: bridge
-   name: roboshop
-   external: true
+   roboshop:
+    external: true
 
 services:
   catalogue:

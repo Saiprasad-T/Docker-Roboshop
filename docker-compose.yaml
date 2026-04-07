@@ -59,6 +59,7 @@ services:
    image : saithota9/rabbitmq:1.0.0
    container_name: rabbitmq
   redis:
-   image: saithota9/redis:7.0
+   build: ./redis
+   image: saithota9/redis:1.0.0
    container_name: redis
 

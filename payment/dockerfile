@@ -7,6 +7,7 @@ RUN pip3 install -r requirements.txt
 
 FROM python:3.9-slim
 WORKDIR /app
+RUN pip install --no-cache-dir -r requirements.txt
 COPY --from=builder /app /app
 ENV CART_HOST=cart \
     CART_PORT=8080 \

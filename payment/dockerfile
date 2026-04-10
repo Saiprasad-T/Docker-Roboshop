@@ -1,9 +1,13 @@
-FROM python:3.9
+FROM python:3.9 As builder
 WORKDIR /app
 COPY payment.ini .
 COPY *.py .
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
+
+FROM python:3.9-slim
+WORKDIR /app
+COPY --from=builder /app /app
 ENV CART_HOST=cart \
     CART_PORT=8080 \
     USER_HOST=user \

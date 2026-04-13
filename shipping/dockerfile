@@ -11,6 +11,6 @@ COPY --from=builder /app /app
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop && \
     chown -R roboshop:roboshop /app
 USER roboshop
-ENV CART_ENDPOINT=cart:8080
-ENV DB_HOST=mysql
+# ENV CART_ENDPOINT=cart:8080
+# ENV DB_HOST=mysql
 CMD ["java","-jar","shipping.jar"]

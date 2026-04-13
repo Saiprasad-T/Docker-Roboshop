@@ -8,6 +8,9 @@ RUN mv target/*.jar shipping.jar
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=builder /app /app
-ENV CART_ENDPOINT=cart:8080
-ENV DB_HOST=mysql
+RUN addgroup -S roboshop && adduser -S roboshop -G roboshop && \
+    chown -R roboshop:roboshop /app
+USER roboshop
+# ENV CART_ENDPOINT=cart:8080
+# ENV DB_HOST=mysql
 CMD ["java","-jar","shipping.jar"]
